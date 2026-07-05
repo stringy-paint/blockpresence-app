@@ -1,0 +1,80 @@
+/* StatusIndicator */
+.status-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: 8px 14px;
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  font-weight: 500;
+  animation: fadeIn 0.3s ease-out;
+  margin-top: var(--space-md);
+}
+
+/* — Size variants — */
+.status-size-sm {
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  margin-top: 0;
+}
+.status-size-sm .status-icon {
+  font-size: 0.8rem;
+}
+.status-size-md .status-icon {
+  font-size: 1rem;
+}
+.status-size-lg {
+  padding: 12px 20px;
+  font-size: 0.95rem;
+}
+.status-size-lg .status-icon {
+  font-size: 1.2rem;
+}
+
+/* — Status variants — */
+.status-idle {
+  background: rgba(90, 100, 120, 0.15);
+  color: var(--text-secondary);
+  border: 1px solid rgba(90, 100, 120, 0.2);
+}
+
+.status-loading {
+  background: var(--neon-blue-glow);
+  color: var(--neon-blue);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+}
+
+.status-success {
+  background: var(--neon-green-glow);
+  color: var(--neon-green);
+  border: 1px solid rgba(0, 255, 136, 0.2);
+}
+
+.status-error {
+  background: var(--color-error-glow);
+  color: var(--color-error);
+  border: 1px solid rgba(255, 71, 87, 0.2);
+}
+
+.status-warning {
+  background: var(--color-warning-glow);
+  color: var(--color-warning);
+  border: 1px solid rgba(255, 179, 0, 0.2);
+}
+
+.status-info {
+  background: var(--neon-blue-glow);
+  color: var(--neon-cyan);
+  border: 1px solid rgba(34, 211, 238, 0.2);
+}
+
+.status-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.status-message {
+  line-height: 1.4;
+}

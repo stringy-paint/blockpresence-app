@@ -1,0 +1,273 @@
+/* ============================================================
+   App Shell — Layout, Header, Tabs, Footer
+   ============================================================ */
+
+/* — Background Grid — */
+.bg-grid {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.03;
+  background-image:
+    linear-gradient(rgba(0, 255, 136, 0.3) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 136, 0.3) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: gridMove 20s linear infinite;
+  pointer-events: none;
+}
+
+/* — App — */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* — Header — */
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(10, 14, 23, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.header-content {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: var(--space-md) var(--space-lg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.brand-logo {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.brand-text h1 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--neon-green), var(--neon-blue));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.2;
+}
+
+.brand-tagline {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+}
+
+/* — Main — */
+.app-main {
+  flex: 1;
+  max-width: 960px;
+  width: 100%;
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-lg) var(--space-3xl);
+}
+
+/* — Security Banner — */
+.security-banner {
+  margin-bottom: var(--space-xl);
+  padding: var(--space-sm) var(--space-md);
+  background: rgba(0, 255, 136, 0.04);
+  border: 1px solid rgba(0, 255, 136, 0.08);
+  border-radius: var(--radius-full);
+  text-align: center;
+}
+
+.banner-items {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.banner-item {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.banner-icon {
+  font-size: 0.85rem;
+}
+
+.banner-divider {
+  color: var(--text-muted);
+  opacity: 0.3;
+}
+
+/* — Tab Navigation — */
+.tab-navigation {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 4px;
+  margin-bottom: var(--space-lg);
+  overflow: hidden;
+}
+
+.tab-btn {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: 14px var(--space-lg);
+  background: transparent;
+  border: none;
+  border-radius: calc(var(--radius-lg) - 4px);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.tab-btn:hover {
+  color: var(--text-secondary);
+}
+
+.tab-btn.tab-active {
+  color: var(--text-inverse);
+}
+
+.tab-icon {
+  font-size: 1.1rem;
+}
+
+.tab-indicator {
+  position: absolute;
+  z-index: 1;
+  top: 4px;
+  left: 4px;
+  width: calc(33.333% - 4px);
+  height: calc(100% - 8px);
+  background: linear-gradient(135deg, var(--neon-green-dim), var(--neon-green));
+  border-radius: calc(var(--radius-lg) - 4px);
+  transition: transform var(--transition-base);
+  box-shadow: 0 2px 12px rgba(0, 255, 136, 0.25);
+}
+
+/* — Panel Container — */
+.panel-container {
+  animation: fadeInScale 0.3s ease-out;
+  min-height: 400px;
+}
+
+/* — Footer — */
+.app-footer {
+  margin-top: var(--space-2xl);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--border-subtle);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.app-footer p {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.footer-link {
+  color: var(--neon-blue-dim);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.footer-link:hover {
+  color: var(--neon-blue);
+  text-decoration: underline;
+}
+
+.footer-note {
+  font-style: italic;
+  opacity: 0.7;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    gap: var(--space-md);
+    align-items: stretch;
+  }
+
+  .header-brand {
+    justify-content: center;
+  }
+
+  .wallet-connect {
+    align-items: center;
+  }
+
+  .app-main {
+    padding: var(--space-lg) var(--space-md) var(--space-2xl);
+  }
+
+  .banner-items {
+    gap: var(--space-sm);
+  }
+
+  .banner-divider {
+    display: none;
+  }
+
+  .banner-item {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand-text h1 {
+    font-size: 1.05rem;
+  }
+
+  .tab-btn {
+    padding: 12px var(--space-md);
+    font-size: 0.82rem;
+  }
+
+  .tab-label {
+    display: none;
+  }
+
+  .tab-icon {
+    font-size: 1.3rem;
+  }
+
+  .panel-container {
+    padding: var(--space-md);
+  }
+}
