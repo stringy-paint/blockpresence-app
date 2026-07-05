@@ -104,8 +104,8 @@ export default function MahasiswaPanel({ signer, address }) {
       return;
     }
 
-    if (!decrypted.sessionId || !decrypted.courseId) {
-      setStatus({ type: 'error', message: 'Data QR tidak lengkap (sessionId/courseId missing)' });
+    if (!decrypted.sessionId) {
+      setStatus({ type: 'error', message: 'Data QR tidak lengkap (sessionId missing)' });
       return;
     }
 

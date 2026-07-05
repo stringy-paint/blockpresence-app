@@ -117,10 +117,9 @@ export default function DosenPanel({ signer, address, onSessionCreated }) {
 
       const timestamp = Math.floor(Date.now() / 1000);
 
-      // Data sesi untuk dienkripsi dan ditanamkan di QR
+      // Data sesi untuk dienkripsi dan ditanamkan di QR (tanpa courseId hex agar titik QR lebih besar & mudah discan)
       const dataToEncrypt = {
         sessionId: sessionId,
-        courseId: courseId,
         courseName: courseName.trim(),
         timestamp: timestamp
       };
@@ -250,7 +249,7 @@ export default function DosenPanel({ signer, address, onSessionCreated }) {
             <div className="qr-frame">
               <QRCodeSVG
                 value={qrValue}
-                size={260}
+                size={320}
                 level="L"
                 includeMargin={true}
                 bgColor="#ffffff"
